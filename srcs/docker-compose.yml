@@ -1,0 +1,21 @@
+version: '3.8'
+
+services: 
+    
+    nginx:
+        restart: unless-stop
+        build:
+            context: ./requirements/nginx
+            
+    mariadb:
+        restart: unless-stop
+        build:
+            context: ./requirements/mariadb
+                
+    wordpress:
+        restart: unless-stop
+        build: 
+            context: ./requirements/wordpress
+
+    
+    
