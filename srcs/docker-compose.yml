@@ -1,21 +1,65 @@
-version: '3.8'
+version: '3'
 
-services: 
-    
-    nginx:
-        restart: unless-stop
-        build:
-            context: ./requirements/nginx
-            
+services:
     mariadb:
-        restart: unless-stop
+        image: mariadb
+        # env_file: .env
         build:
             context: ./requirements/mariadb
-                
-    wordpress:
-        restart: unless-stop
-        build: 
-            context: ./requirements/wordpress
+            dockerfile: Dockerfile
+        ports:
+            - 3306:3306
+        tty: true
+        networks:
+            - monreseau
+    #     restart: always
+        # environment:
+        #     MYSQL_ROOT_PASSWORD: wordpress
+        #     MYSQL_DATABASE: dev_docker_wordpress
+        #     MYSQL_USER: wordpress
+        #     MYSQL_PASSWORD: wordpress
+    #     # volumes:
+    #         #- /home/sohechai/data:/var/lib/mysql
 
-    
-    
+    wordpress:
+        depends_on:
+            - mariadb
+        image: wordpress
+        build:
+            context: ./requirements/wordpress
+            dockerfile: Dockerfile
+        ports:
+            - 9000:9000
+        # env_file: .env
+        networks:
+            - monreseau
+        # environment:
+        #     WORDPRESS_DB_HOST: mariadb:3306
+        #     WORDPRESS_DB_USER: wordpress
+        #     WORDPRESS_DB_PASSWORD: wordpress
+        #     WORDPRESS_DB_NAME: wordpress
+    #     #volumes:
+    #         #- /home/sohechai/data:/var/www/html
+        tty: true
+    #     restart: always
+
+    nginx:
+        # depends_on:
+        #     - wordpress
+        build:
+            context: ./requirements/nginx
+            dockerfile: Dockerfile
+        image: nginx
+        tty: true
+        ports:
+            - 443:443
+        networks:
+            - monreseau
+    # depends_on:
+    #     - mariadb
+    #     - wordpress
+    # restart: always
+
+networks:
+    monreseau:
+        driver: bridge
