@@ -6,22 +6,21 @@
 #    By: sohechai <sohechai@student.42lyon.fr>      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/05/24 19:46:44 by sohechai          #+#    #+#              #
-#    Updated: 2021/05/25 17:50:49 by sohechai         ###   ########lyon.fr    #
+#    Updated: 2021/05/31 18:29:08 by sohechai         ###   ########lyon.fr    #
 #                                                                              #
 # **************************************************************************** #
 
-ln -s /etc/nginx/sites-available/wordpress.conf /etc/nginx/sites-enabled/
+cd /var/www/html
+mv /tmp/wp-config.php ./
 
-mv /tmp/wp-config.php /var/www/html/wordpress/
+# wordpress installation + setup
+wp core download --allow-root
+wp core config --dbname=wordpress --dbuser=wordpress_user --dbpass=wordpress_password --dbhost=mariadb --dbprefix=wp_ --allow-root
+wp core install --url="localhost" --title="INCEPTION" --admin_user=$ADMIN_USER --admin_password=$ADMIN_PASSWORD --admin_email=$ADMIN_EMAIL --allow-root
 
-# droit
-chown www-data.www-data /var/www/html/wordpress/* -R
-# chown -R www-data:www-data /var/www/*
-# chmod -R 755 /var/www/*
+#droit
+chown www-data:www-data /var/www
+chmod 744 /var/www
 
-service nginx restart
-service php7.3-fpm start
-bash
-# while true; do
-#     sleep 1;
-# done
+mkdir -p /run/php
+php-fpm7.3 --nodaemonize
