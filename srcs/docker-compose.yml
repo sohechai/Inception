@@ -10,9 +10,9 @@ services:
         tty: true
         networks:
             - monreseau
+        # volumes:
+        #     - ../data/mariadb:/var/lib/mysql
         restart: always
-        volumes:
-            - ../data/mariadb:/var/lib/mysql
         # env_file: .env
 
     wordpress:
