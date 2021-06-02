@@ -6,7 +6,7 @@
 #    By: sohechai <sohechai@student.42lyon.fr>      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/05/21 15:14:08 by sohechai          #+#    #+#              #
-#    Updated: 2021/05/31 18:26:58 by sohechai         ###   ########lyon.fr    #
+#    Updated: 2021/06/02 19:54:53 by sohechai         ###   ########lyon.fr    #
 #                                                                              #
 # **************************************************************************** #
 
@@ -14,11 +14,11 @@ FROM debian:buster
 
 LABEL maintainer="<sohechai@student.le-101.fr>"
 
-RUN apt-get update && apt-get upgrade -y
-RUN apt-get install php-fpm php-mysql -y
-RUN apt-get install php-cgi php-common php-pear php-net-socket php-xml-util -y
-RUN apt-get install php-mbstring php-zip php-gd php-xml  php-gettext php-bcmath -y
-RUN apt-get install unzip wget curl -y
+RUN apt-get update && apt-get upgrade -y && \
+	apt-get install php-fpm php-mysql -y && \
+	apt-get install php-cgi php-common php-pear php-net-socket php-xml-util -y && \
+	apt-get install php-mbstring php-zip php-gd php-xml  php-gettext php-bcmath -y && \
+	apt-get install unzip wget curl -y
 
 COPY ./script.sh ./
 COPY ./wp-config.php ./tmp/

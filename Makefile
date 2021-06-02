@@ -6,30 +6,29 @@
 #    By: sohechai <sohechai@student.42lyon.fr>      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/05/21 15:56:37 by sohechai          #+#    #+#              #
-#    Updated: 2021/05/24 23:31:47 by sohechai         ###   ########lyon.fr    #
+#    Updated: 2021/06/02 19:51:05 by sohechai         ###   ########lyon.fr    #
 #                                                                              #
 # **************************************************************************** #
 
-# DOCKER_COMPOSE				= 	docker-compose up
+DOCKER_COMPOSE				= 	docker-compose
 
-# DOCKER_COMPOSE_FILE 		= 	./srcs/docker-compose.yml
+DOCKER_COMPOSE_FILE 		= 	./srcs/docker-compose.yml
 
-# c							=	dock
+start:
+	@$(DOCKER_COMPOSE) -f $(DOCKER_COMPOSE_FILE) up --build
 
-# eval $(weave env)
+stop:
+	@$(DOCKER_COMPOSE) -f $(DOCKER_COMPOSE_FILE) down
 
-# start:
-# 	@$(DOCKER_COMPOSE) -f $(DOCKER_COMPOSE_FILE) up -d $(c)
+status:
+	@$(DOCKER_COMPOSE) -f $(DOCKER_COMPOSE_FILE) ps
 
-# stop:
-# 	@$(DOCKER_COMPOSE) -f $(DOCKER_COMPOSE_FILE) stop $(c)
+restart:
+	@$(DOCKER_COMPOSE) -f $(DOCKER_COMPOSE_FILE)
+	@$(DOCKER_COMPOSE) -f $(DOCKER_COMPOSE_FILE) --build
 
-# status:
-# 	@$(DOCKER_COMPOSE) -f $(DOCKER_COMPOSE_FILE) ps
-
-# restart:
-# 	@$(DOCKER_COMPOSE) -f $(DOCKER_COMPOSE_FILE) stop
-# 	@$(DOCKER_COMPOSE) -f $(DOCKER_COMPOSE_FILE) up
-
-# clean: confirm
-# 	@$(DOCKER_COMPOSE) -f $(DOCKER_COMPOSE_FILE) down
+clean:
+	@${DOCKER_COMPOSE} -f ${DOCKER_COMPOSE_FILE} down
+	@rm -rf ./data/wordpress/*
+	@rm -rf ./data/wordpress/.*
+	@rm -- -rf ./data/mariadb/*

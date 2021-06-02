@@ -6,14 +6,12 @@ services:
         build:
             context: ./requirements/mariadb
             dockerfile: Dockerfile
-        stdin_open: true
-        tty: true
         networks:
             - monreseau
         # volumes:
         #     - ../data/mariadb:/var/lib/mysql
+        env_file: .env
         restart: always
-        # env_file: .env
 
     wordpress:
         depends_on:
