@@ -6,7 +6,7 @@
 #    By: sohechai <sohechai@student.42lyon.fr>      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/05/21 15:14:08 by sohechai          #+#    #+#              #
-#    Updated: 2021/06/02 19:54:53 by sohechai         ###   ########lyon.fr    #
+#    Updated: 2021/06/03 13:32:06 by sohechai         ###   ########lyon.fr    #
 #                                                                              #
 # **************************************************************************** #
 
@@ -27,7 +27,6 @@ COPY ./www.conf /etc/php/7.3/fpm/pool.d/www.conf
 RUN curl -O https://raw.githubusercontent.com/wp-cli/builds/gh-pages/phar/wp-cli.phar
 RUN chmod +x wp-cli.phar
 RUN mv wp-cli.phar /usr/local/bin/wp
-
 
 EXPOSE 9000
 

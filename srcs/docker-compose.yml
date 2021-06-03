@@ -16,6 +16,7 @@ services:
     wordpress:
         depends_on:
             - mariadb
+            - redis
         image: wordpress
         build:
             context: ./requirements/wordpress
@@ -44,6 +45,42 @@ services:
         volumes:
             - ../data/wordpress:/var/www/html/
         restart: always
+
+    adminer:
+        image: adminer
+        depends_on:
+            - mariadb
+        build:
+            context: ./requirements/adminer
+            dockerfile: Dockerfile
+        networks:
+            - monreseau
+        environment:
+            ADMINER_DEFAULT_DB_DRIVER: mysql
+            ADMINER_DEFAULT_DB_HOST: mariadb
+            ADMINER_DEFAULT_DB_NAME: adminer
+        volumes:
+            - ../data/wordpress:/var/www/html/
+        # restart: always
+
+    redis:
+        image: redis
+        build:
+            context: ./requirements/redis
+            dockerfile: Dockerfile
+        tty: true
+        networks:
+			- monreseau
+
+	website:
+		image: website
+		build: 
+			context: ./requirements/website
+			dockerfile: Dockerfile
+		networks: 
+			- monreseau
+		volumes:
+			- ../data/wordpress:/var/www/html/
 
 networks:
     monreseau:

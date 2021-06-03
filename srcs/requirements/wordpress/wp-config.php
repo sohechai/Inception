@@ -38,6 +38,14 @@ define('DB_CHARSET', 'utf8');
   */
 define('DB_COLLATE', '');
 
+define( 'FS_METHOD', 'direct' );
+
+define('WP_REDIS_HOST', 'redis');
+define('WP_REDIS_PORT', '6379');
+define('WP_REDIS_PASSWORD', '');
+define('WP_CACHE_KEY_SALT', 'sohechai.42.fr');
+define( 'WP_CACHE', true );
+
 /**#@+
  * Clés uniques d’authentification et salage.
  *

@@ -6,7 +6,7 @@
 #    By: sohechai <sohechai@student.42lyon.fr>      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/05/24 19:46:44 by sohechai          #+#    #+#              #
-#    Updated: 2021/06/02 16:14:21 by sohechai         ###   ########lyon.fr    #
+#    Updated: 2021/06/03 15:22:14 by sohechai         ###   ########lyon.fr    #
 #                                                                              #
 # **************************************************************************** #
 
@@ -21,6 +21,10 @@ wp user create $SUB_USER $SUB_EMAIL --user_pass=$SUB_PASSWORD --role=subscriber 
 #droit
 chown www-data:www-data /var/www
 chmod 744 /var/www
+
+#redis cache
+# wget https://github.com/ericmann/Redis-Object-Cache/raw/master/object-cache.php
+# mv object-cache.php /var/www/html/wordpress/wp-content.php
 
 #run php
 mkdir -p /run/php
