@@ -6,7 +6,7 @@
 #    By: sohechai <sohechai@student.42lyon.fr>      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/06/03 20:51:33 by sohechai          #+#    #+#              #
-#    Updated: 2021/06/03 21:00:28 by sohechai         ###   ########lyon.fr    #
+#    Updated: 2021/06/03 21:34:30 by sohechai         ###   ########lyon.fr    #
 #                                                                              #
 # **************************************************************************** #
 
@@ -17,8 +17,9 @@ LABEL maintainer="<sohechai@student.42lyon.fr>"
 RUN apt-get update && apt-get upgrade -y && \
 	apt-get install nginx -y
 
-COPY ./script.sh ./
+RUN mkdir site
 
-EXPOSE 6379
+COPY  ./site ./site
+COPY ./script.sh ./
 
 CMD sh script.sh

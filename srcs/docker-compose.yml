@@ -70,17 +70,17 @@ services:
             dockerfile: Dockerfile
         tty: true
         networks:
-			- monreseau
+            - monreseau
 
-	website:
-		image: website
-		build: 
-			context: ./requirements/website
-			dockerfile: Dockerfile
-		networks: 
-			- monreseau
-		volumes:
-			- ../data/wordpress:/var/www/html/
+    website:
+        image: website
+        build: 
+            context: ./requirements/website
+            dockerfile: Dockerfile
+        networks: 
+            - monreseau
+        volumes:
+            - ../data/wordpress:/var/www/html/
 
 networks:
     monreseau:
