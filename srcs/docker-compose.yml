@@ -3,13 +3,13 @@ version: '3'
 services:
     mariadb:
         image: mariadb
+        volumes:
+            - mariadb:/var/lib/mysql
         build:
             context: ./requirements/mariadb
             dockerfile: Dockerfile
         networks:
             - monreseau
-        # volumes:
-        #     - ../data/mariadb:/var/lib/mysql
         env_file: .env
         restart: always
 
@@ -25,7 +25,7 @@ services:
         networks:
             - monreseau
         volumes:
-            - ../data/wordpress:/var/www/html
+            - wordpress:/var/www/html
         tty: true
         restart: always
 
@@ -43,7 +43,7 @@ services:
         networks:
             - monreseau
         volumes:
-            - ../data/wordpress:/var/www/html/
+            - wordpress:/var/www/html/
         restart: always
 
     adminer:
@@ -60,8 +60,7 @@ services:
             ADMINER_DEFAULT_DB_HOST: mariadb
             ADMINER_DEFAULT_DB_NAME: adminer
         volumes:
-            - ../data/wordpress:/var/www/html/
-        # restart: always
+            - wordpress:/var/www/html/
 
     redis:
         image: redis
@@ -74,14 +73,26 @@ services:
 
     website:
         image: website
-        build: 
+        build:
             context: ./requirements/website
             dockerfile: Dockerfile
-        networks: 
+        networks:
             - monreseau
         volumes:
-            - ../data/wordpress:/var/www/html/
+            - wordpress:/var/www/html/
 
+
+volumes:
+    wordpress:
+        driver_opts:
+            type: none
+            device: /home/sohechai/data/wordpress
+            o: bind
+    mariadb:
+        driver_opts:
+            type: none
+            device: /home/sohechai/data/mariadb
+            o: bind
 networks:
     monreseau:
         driver: bridge
