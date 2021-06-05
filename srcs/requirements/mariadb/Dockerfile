@@ -6,7 +6,7 @@
 #    By: sohechai <sohechai@student.42lyon.fr>      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/05/21 15:14:02 by sohechai          #+#    #+#              #
-#    Updated: 2021/06/05 23:59:44 by sohechai         ###   ########lyon.fr    #
+#    Updated: 2021/06/06 00:03:33 by sohechai         ###   ########lyon.fr    #
 #                                                                              #
 # **************************************************************************** #
 
@@ -24,4 +24,4 @@ COPY ./script.sh ./
 
 EXPOSE 3306
 
-ENTRYPOINT sh script.sh
+CMD mysqld && sh script.sh

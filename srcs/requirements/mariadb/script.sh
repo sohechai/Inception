@@ -6,7 +6,7 @@
 #    By: sohechai <sohechai@student.42lyon.fr>      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/06/02 15:08:40 by sohechai          #+#    #+#              #
-#    Updated: 2021/06/05 23:59:43 by sohechai         ###   ########lyon.fr    #
+#    Updated: 2021/06/06 00:03:33 by sohechai         ###   ########lyon.fr    #
 #                                                                              #
 # **************************************************************************** #
 
@@ -21,4 +21,3 @@ if [ ! -d "/tmp/ok" ]; then
 
 fi
 
-mysqld
