@@ -8,8 +8,8 @@ services:
             dockerfile: Dockerfile
         networks:
             - monreseau
-        # volumes:
-        #     - ../data/mariadb:/var/lib/mysql
+        volumes:
+            - /home/sohechai/data/mariadb:/var/lib/mysql
         env_file: .env
         restart: always
 
@@ -25,7 +25,7 @@ services:
         networks:
             - monreseau
         volumes:
-            - ../data/wordpress:/var/www/html
+            - /home/sohechai/data/wordpress:/var/www/html
         tty: true
         restart: always
 
@@ -43,7 +43,7 @@ services:
         networks:
             - monreseau
         volumes:
-            - ../data/wordpress:/var/www/html/
+            - /home/sohechai/data/wordpress:/var/www/html/
         restart: always
 
     adminer:
@@ -60,7 +60,7 @@ services:
             ADMINER_DEFAULT_DB_HOST: mariadb
             ADMINER_DEFAULT_DB_NAME: adminer
         volumes:
-            - ../data/wordpress:/var/www/html/
+            - /home/sohechai/data/wordpress:/var/www/html/
         # restart: always
 
     redis:
@@ -80,7 +80,7 @@ services:
         networks: 
             - monreseau
         volumes:
-            - ../data/wordpress:/var/www/html/
+            - /home/sohechai/data/wordpress:/var/www/html/
 
 networks:
     monreseau:

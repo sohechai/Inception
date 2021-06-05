@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Dockerfile                                         :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: sohechai <sohechai@student.42lyon.fr>      +#+  +:+       +#+         #
+#    By: user42 <user42@student.42lyon.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/05/21 15:14:02 by sohechai          #+#    #+#              #
-#    Updated: 2021/06/03 12:07:28 by sohechai         ###   ########lyon.fr    #
+#    Updated: 2021/06/05 20:52:47 by user42           ###   ########lyon.fr    #
 #                                                                              #
 # **************************************************************************** #
 
@@ -24,4 +24,4 @@ COPY ./script.sh ./
 
 EXPOSE 3306
 
-ENTRYPOINT sh script.sh
+CMD mysqld && sh script.sh

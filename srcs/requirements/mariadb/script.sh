@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    script.sh                                          :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: sohechai <sohechai@student.42lyon.fr>      +#+  +:+       +#+         #
+#    By: user42 <user42@student.42lyon.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/06/02 15:08:40 by sohechai          #+#    #+#              #
-#    Updated: 2021/06/02 19:28:20 by sohechai         ###   ########lyon.fr    #
+#    Updated: 2021/06/05 20:52:49 by user42           ###   ########lyon.fr    #
 #                                                                              #
 # **************************************************************************** #
 
@@ -20,4 +20,3 @@ if [ ! -d "/tmp/ok" ]; then
 
 fi
 
-mysqld
