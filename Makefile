@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: user42 <user42@student.42lyon.fr>          +#+  +:+       +#+         #
+#    By: sohechai <sohechai@student.42lyon.fr>      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/05/21 15:56:37 by sohechai          #+#    #+#              #
-#    Updated: 2021/06/05 20:42:56 by user42           ###   ########lyon.fr    #
+#    Updated: 2021/06/06 00:07:22 by sohechai         ###   ########lyon.fr    #
 #                                                                              #
 # **************************************************************************** #
 
@@ -29,6 +29,5 @@ restart:
 
 clean:
 	@${DOCKER_COMPOSE} -f ${DOCKER_COMPOSE_FILE} down
-	@rm -rf /home/sohechai/data/wordpress/*
-	@rm -rf /home/sohechai/data/wordpress/.*
-	@rm -- -rf /home/sohechai/data/mariadb/*
+	@sudo rm -rf /home/sohechai/data/wordpress/*
+	@sudo rm -- -rf /home/sohechai/data/mariadb/*

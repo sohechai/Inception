@@ -6,7 +6,7 @@
 #    By: sohechai <sohechai@student.42lyon.fr>      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/05/21 15:14:02 by sohechai          #+#    #+#              #
-#    Updated: 2021/06/06 00:03:33 by sohechai         ###   ########lyon.fr    #
+#    Updated: 2021/06/06 00:04:59 by sohechai         ###   ########lyon.fr    #
 #                                                                              #
 # **************************************************************************** #
 
@@ -20,7 +20,6 @@ RUN apt-get update && apt-get upgrade -y && \
 
 COPY ./mariadb-server.cnf /etc/mysql/mariadb.conf.d/
 COPY ./script.sh ./
-
 
 EXPOSE 3306
 

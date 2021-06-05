@@ -6,13 +6,13 @@
 #    By: sohechai <sohechai@student.42lyon.fr>      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/05/21 15:13:50 by sohechai          #+#    #+#              #
-#    Updated: 2021/06/02 15:54:10 by sohechai         ###   ########lyon.fr    #
+#    Updated: 2021/06/06 00:06:22 by sohechai         ###   ########lyon.fr    #
 #                                                                              #
 # **************************************************************************** #
 
 FROM debian:buster
 
-LABEL maintainer="<sohechai@student.le-101.fr>"
+LABEL maintainer="<sohechai@student.42lyon.fr>"
 
 RUN apt-get update && apt-get upgrade -y && \
 	apt-get install nginx -y && \
